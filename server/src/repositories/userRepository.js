@@ -1,7 +1,7 @@
-const { getUsersList, getUserById, getUserPostsList } = require('../../api/dummyApi/index');
+const { getUsersList, getUserById, getUserPostsList } = require('../api/dummyApi/index');
 const logger = require('../logger');
 const format = require('string-format');
-const { userRepository: messages } = require('../../constants/loggerMessages');
+const { userRepository: messages } = require('../constants/loggerMessages');
 
 class UserRepository {
   getUsersList(page, limit) {

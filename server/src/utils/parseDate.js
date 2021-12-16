@@ -20,11 +20,21 @@ const getValue = (value) => {
 const parseDate = (isoDate) => {
   const date = new Date(isoDate);
   const time = `${getValue(date.getHours())}:${getValue(date.getMinutes())}`;
-  return {
-    enDate: `${date.getDate()} ${MONTHS_EN[date.getMonth()]} ${date.getFullYear()}`,
-    ruDate: `${date.getDate()} ${MONTHS_RU[date.getMonth()]} ${date.getFullYear()} ${YEAR}`,
-    enDateAndTime: `${date.getDate()} ${MONTHS_EN[date.getMonth()]} ${time}`,
-    ruDateAndTime: `${date.getDate()} ${MONTHS_RU[date.getMonth()]} ${time}`
+
+  if(date.getDate() && date.getMonth() && date.getFullYear()) {
+    return {
+      enDate: `${date.getDate()} ${MONTHS_EN[date.getMonth()]} ${date.getFullYear()}`,
+      ruDate: `${date.getDate()} ${MONTHS_RU[date.getMonth()]} ${date.getFullYear()} ${YEAR}`,
+      enDateAndTime: `${date.getDate()} ${MONTHS_EN[date.getMonth()]} ${time}`,
+      ruDateAndTime: `${date.getDate()} ${MONTHS_RU[date.getMonth()]} ${time}`
+    }
+  } else {
+    return {
+      enDate: ``,
+      ruDate: ``,
+      enDateAndTime: ``,
+      ruDateAndTime: ``
+    }
   }
 }
 
