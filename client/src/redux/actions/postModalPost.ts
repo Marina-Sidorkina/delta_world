@@ -28,6 +28,7 @@ export const updatePostModalPost = (post: AxiosResponse<any, any>) => ({
 });
 
 export const getNewPostModalPost = (id: string) => (dispatch: Dispatch) => {
+  dispatch(hidePostModalPostError());
   dispatch(showPostModalPostLoading());
   getPostInfo(id)
     .then((response) => {
