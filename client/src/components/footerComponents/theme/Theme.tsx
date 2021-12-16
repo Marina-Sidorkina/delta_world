@@ -15,7 +15,6 @@ const Theme = () => {
         { t('theme', {}) }
       </span>
       <Switch
-        className="theme__toggle"
         onChange={(switched: boolean) => (
           themeContext.toggleTheme && themeContext.toggleTheme(switched)
         )}
