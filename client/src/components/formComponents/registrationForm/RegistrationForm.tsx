@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
   Button, Form, Input, Radio, Spin
 } from 'antd';
@@ -8,8 +8,7 @@ import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
-  hideRegistrationErrorAction, registerUser,
-  updateDateOfBirthAction, updateEmailAction,
+  registerUser, updateDateOfBirthAction, updateEmailAction,
   updateGenderAction, updateNameAction, updatePhoneAction
 } from '../../../redux/actions/registrationForm';
 import styles from './RegistraionForm.module.scss';
@@ -26,10 +25,6 @@ const RegistrationForm = () => {
   const { t } = useTranslation();
   const stateValues = useTypedSelector((state) => state);
   const dispatch = useDispatch();
-
-  useEffect(() => () => {
-    dispatch(hideRegistrationErrorAction());
-  }, []);
 
   const onFinish = (data: any) => {
     dispatch(registerUser(data, history));
