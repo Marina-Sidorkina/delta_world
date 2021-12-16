@@ -19,6 +19,15 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**/**/*.js"
+    ]
   }
 }
