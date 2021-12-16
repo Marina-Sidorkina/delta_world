@@ -44,6 +44,7 @@ export const resetAuthorizationErrorAction = () => ({
 });
 
 export const authorizeUser = (id: string, history: any) => (dispatch: Dispatch) => {
+  dispatch(resetAuthorizationErrorAction());
   dispatch(showLoadingAction());
   getUserInfo(id)
     .then((response) => {
