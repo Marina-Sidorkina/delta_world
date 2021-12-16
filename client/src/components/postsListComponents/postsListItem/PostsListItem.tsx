@@ -6,7 +6,7 @@ import helper from '../../../hocs/helper/helper';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { IPostsListItemNameProps, IPostsListItem } from './@types/postsListItem';
 import { useTypedSelector } from '../../../redux/hooks/useTypedSelector';
-import { getTitleValue } from '../../../utils/components';
+import { getTitleValue } from '../../../utils/getValues';
 
 const PostsListItemName = (props: IPostsListItemNameProps) => {
   const language = useTypedSelector((state) => state.languageSelector.value);

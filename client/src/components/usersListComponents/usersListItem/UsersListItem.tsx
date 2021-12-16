@@ -5,7 +5,7 @@ import { DEFAULT_IMAGE } from '../../../constants/components';
 import helper from '../../../hocs/helper/helper';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { IUsersListItemProps, IUsersListItemNameProps } from './@types/usersListItem';
-import { getTitleValue } from '../../../utils/components';
+import { getTitleValue } from '../../../utils/getValues';
 import { useTypedSelector } from '../../../redux/hooks/useTypedSelector';
 
 const UsersListItemName = (props: IUsersListItemNameProps) => {

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './UserInfo.module.scss';
 import { loadUserInfo } from '../../../redux/actions/userInfo';
-import { getGenderFieldValue, getTitleValue } from '../../../utils/components';
+import { getGenderFieldValue, getTitleValue } from '../../../utils/getValues';
 import { DEFAULT_IMAGE, RUSSIAN_LANGUAGE } from '../../../constants/components';
 import { openUserModalAction, updateUserModalPictureAction } from '../../../redux/actions/userModalForm';
 import { ThemeContext } from '../../../contexts/ThemeContext';

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import styles from './UserModalForm.module.scss';
 import { DEFAULT_IMAGE, RUSSIAN_LANGUAGE } from '../../../../constants/components';
-import { getGenderFieldValue } from '../../../../utils/components';
+import { getGenderFieldValue } from '../../../../utils/getValues';
 import {
   processUserModalFormAction, processUserModalPicture, resetValuesAction,
   updateUserModalDateOfBirthAction, updateUserModalGenderAction, updateUserModalNameAction,
