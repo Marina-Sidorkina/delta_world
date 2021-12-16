@@ -34,6 +34,7 @@ export const hideUserPostsErrorAction = () => ({
 });
 
 export const loadUserPosts = (currentPage: number, perPageLimit: number, id: string) => (dispatch: Dispatch) => {
+  dispatch(hideUserPostsErrorAction());
   dispatch(showLoadingAction());
   getUserPosts(currentPage, perPageLimit, id)
     .then((response) => {

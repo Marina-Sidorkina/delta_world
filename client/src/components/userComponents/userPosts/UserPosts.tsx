@@ -57,7 +57,7 @@ const UserPosts = () => {
   return (
     <ul className={styles.posts}>
       { stateValues.userPosts.data.error ? (
-        <div>
+        <div className={styles.error}>
           { t('errorText', {}) }
         </div>
       ) : elements }
