@@ -1,5 +1,4 @@
-const DUMMY_API_SETTINGS = require('../../api/dummyApi/constants');
-const dummyApi = require('../../api/dummyApi/index');
+const { getPostsList, getPostById, getPostCommentsList } = require('../../api/dummyApi/index');
 const logger = require('../logger');
 const format = require('string-format');
 const { postRepository: messages } = require('../../constants/loggerMessages');
@@ -7,12 +6,7 @@ const { postRepository: messages } = require('../../constants/loggerMessages');
 class PostRepository {
   getPostsList(page, limit) {
     logger.info(format(messages.GET_POSTS_LIST_INVOKE, page, limit));
-    return dummyApi.get(`/${DUMMY_API_SETTINGS.paths.post}`, {
-      params: {
-        [DUMMY_API_SETTINGS.query.page]: page,
-        [DUMMY_API_SETTINGS.query.limit]: limit
-      }
-    })
+    return getPostsList(page, limit)
       .then((response) => {
         logger.info(format(messages.GET_POSTS_LIST_SUCCESS, JSON.stringify(response.data)));
         return response.data;
@@ -25,7 +19,7 @@ class PostRepository {
 
   getPostById(id) {
     logger.info(format(messages.GET_POST_BY_ID_INVOKE, id));
-    return dummyApi.get(`/${DUMMY_API_SETTINGS.paths.post}/${id}`)
+    return getPostById(id)
       .then((response) => {
         logger.info(format(messages.GET_POST_BY_ID_SUCCESS, JSON.stringify(response.data)));
         return response.data;
@@ -38,12 +32,7 @@ class PostRepository {
 
   getPostCommentsList(postId, page, limit) {
     logger.info(format(messages.GET_POST_COMMENTS_LIST_INVOKE, page, limit, postId));
-    return dummyApi.get(`/post/${postId}/comment`, {
-      params: {
-        [DUMMY_API_SETTINGS.query.page]: page,
-        [DUMMY_API_SETTINGS.query.limit]: limit
-      }
-    })
+    return getPostCommentsList(page, limit, postId)
       .then((response) => {
         logger.info(format(messages.GET_POST_COMMENTS_LIST_SUCCESS, JSON.stringify(response.data)));
         return response.data;
