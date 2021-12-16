@@ -33,6 +33,7 @@ export const hidePostsListErrorAction = () => ({
 });
 
 export const loadPostsList = (currentPage: number, perPageLimit: number) => (dispatch: Dispatch) => {
+  dispatch(hidePostsListErrorAction());
   dispatch(showLoadingAction());
   getPostsList(currentPage, perPageLimit)
     .then((response) => {
