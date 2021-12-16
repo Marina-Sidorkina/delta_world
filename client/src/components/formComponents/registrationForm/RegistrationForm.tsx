@@ -7,17 +7,10 @@ import '../../../locale/i18next';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { addAndShowNewUser } from '../../../api/proxy';
-import { createNewUser } from '../../../utils/api';
-import { authorizeUser } from '../../../redux/actions/login';
 import {
-  hideLoadingAction,
-  hideRegistrationErrorAction,
-  resetValuesAction, showLoadingAction, showRegistrationErrorAction,
-  updateDateOfBirthAction,
-  updateEmailAction,
-  updateGenderAction,
-  updateNameAction, updatePhoneAction
+  hideRegistrationErrorAction, registerUser,
+  updateDateOfBirthAction, updateEmailAction,
+  updateGenderAction, updateNameAction, updatePhoneAction
 } from '../../../redux/actions/registrationForm';
 import styles from './RegistraionForm.module.scss';
 import { ThemeContext } from '../../../contexts/ThemeContext';
@@ -39,23 +32,7 @@ const RegistrationForm = () => {
   }, []);
 
   const onFinish = (data: any) => {
-    dispatch(showLoadingAction());
-    addAndShowNewUser(createNewUser(data))
-      .then((response) => {
-        if (response.data.data.id) {
-          dispatch(resetValuesAction());
-          dispatch(hideRegistrationErrorAction());
-          dispatch(hideLoadingAction());
-          dispatch(authorizeUser(response.data.data.id, history));
-        } else {
-          dispatch(showRegistrationErrorAction());
-          dispatch(hideLoadingAction());
-        }
-      })
-      .catch(() => {
-        dispatch(showRegistrationErrorAction());
-        dispatch(hideLoadingAction());
-      });
+    dispatch(registerUser(data, history));
   };
 
   return (
