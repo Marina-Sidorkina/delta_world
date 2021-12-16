@@ -12,7 +12,7 @@ const UsersListItemName = (props: IUsersListItemNameProps) => {
   const language = useTypedSelector((state) => state.languageSelector.value);
 
   return (
-    <div className="user-item__avatar">
+    <div>
       {`${props.title ? `${getTitleValue(props.title, language)}` : ''} ${props.firstName} ${props.lastName}`}
     </div>
   );
