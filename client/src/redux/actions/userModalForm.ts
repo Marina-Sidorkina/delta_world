@@ -71,6 +71,7 @@ export const closeUserModalAction = () => ({
 });
 
 export const processUserModalPicture = (value: any) => (dispatch: Dispatch) => {
+  dispatch(hideUserModalErrorAction());
   dispatch(showLoadingAction());
   const reader = new FileReader();
   reader.readAsDataURL(value);
@@ -102,6 +103,7 @@ export const processUserModalFormAction = (
       ? IMAGE_CHANGE_CHECK_VALUE
       : userModalPicture
   });
+  dispatch(hideUserModalErrorAction());
   if (!isEmptyObject(updatedData)) {
     dispatch(showLoadingAction());
     updateUser(updatedData, userInfoId)
