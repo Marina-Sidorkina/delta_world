@@ -113,8 +113,8 @@ export const processUserModalFormAction = (
         dispatch(closeUserModalAction());
         dispatch(hideLoadingAction());
         dispatch(hideUserModalErrorAction());
-        updateCookie(response)
-        })
+        updateCookie(response);
+      })
       .catch(() => {
         dispatch(hideLoadingAction());
         dispatch(showUserModalErrorAction());

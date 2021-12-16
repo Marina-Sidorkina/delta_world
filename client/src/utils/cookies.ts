@@ -31,5 +31,4 @@ export const updateCookie = (response: AxiosResponse <any, any>) => {
   document.cookie = `picture=${response.data.data.picture
   || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
   document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
-
-}
+};
