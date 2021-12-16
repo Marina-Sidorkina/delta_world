@@ -35,6 +35,7 @@ export const hideUsersListErrorAction = () => ({
 });
 
 export const loadUsersList = (currentPage: number, perPageLimit: number) => (dispatch: Dispatch) => {
+  dispatch(hideUsersListErrorAction());
   dispatch(showLoadingAction());
   getUsersList(currentPage, perPageLimit)
     .then((response) => {
