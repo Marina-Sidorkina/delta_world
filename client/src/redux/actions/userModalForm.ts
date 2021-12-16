@@ -9,7 +9,7 @@ import { setFormData } from '../../utils/formData';
 import { getImgLink } from '../../api/imgbbApi';
 import { IUserFormValues }
   from '../../components/modalComponents/userModalComponents/userModalForm/@types/userModalForm';
-import { createUpdatedUserData } from '../../utils/api';
+import { createUpdatedUserData } from '../../utils/userData';
 import { IMAGE_CHANGE_CHECK_VALUE } from '../../constants/components';
 import { updateUser } from '../../api/proxy';
 import { updateUserCardAction } from './userInfo';

@@ -6,7 +6,7 @@ import {
   HIDE_REGISTRATION_LOADING
 } from '../constants/registrationForm';
 import { addAndShowNewUser } from '../../api/proxy';
-import { createNewUser } from '../../utils/api';
+import { createNewUserData } from '../../utils/userData';
 import { updateAuthorizedUserDataAction } from './login';
 import { setCookie } from '../../utils/cookies';
 
@@ -58,7 +58,7 @@ export const hideLoadingAction = () => ({
 export const registerUser = (data: any, history: any) => (dispatch: Dispatch) => {
   dispatch(hideRegistrationErrorAction());
   dispatch(showLoadingAction());
-  addAndShowNewUser(createNewUser(data))
+  addAndShowNewUser(createNewUserData(data))
     .then((response) => {
       if (response.data.data.id) {
         dispatch(resetValuesAction());
