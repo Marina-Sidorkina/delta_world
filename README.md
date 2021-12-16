@@ -3,7 +3,13 @@
 ## Available Scripts
 ***
 
-To start project run in server and client directories:
+To start server run from server directory:
+
+### `npm start`
+###
+***
+
+To start client run from client directory:
 
 ### `npm start`
 ###
