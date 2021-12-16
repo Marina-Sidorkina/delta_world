@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY } from '../constants/components';
-import { getDarkThemeValue } from '../utils/components';
+import { DARK_THEME, LOCAL_STORAGE_THEME_KEY } from '../constants/components';
 import { IThemeContextProps, IThemeContextState } from './@types/themeContext';
 
 const ThemeContext = React.createContext<Partial<IThemeContextState>>({});
 
 const ThemeContextProvider = (props: IThemeContextProps) => {
-  const [darkTheme, setDarkTheme] = useState(getDarkThemeValue());
+  const [darkTheme, setDarkTheme] = useState(localStorage
+    .getItem(LOCAL_STORAGE_THEME_KEY) === DARK_THEME);
   const toggleTheme = (value: boolean) => {
     setDarkTheme(value);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, value.toString());

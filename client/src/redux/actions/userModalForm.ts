@@ -11,7 +11,6 @@ import { IUserFormValues }
   from '../../components/modalComponents/userModalComponents/userModalForm/@types/userModalForm';
 import { createUpdatedUserData } from '../../utils/api';
 import { IMAGE_CHANGE_CHECK_VALUE } from '../../constants/components';
-import { isEmptyObject } from '../../utils/components';
 import { updateUser } from '../../api/proxy';
 import { updateUserCardAction } from './userInfo';
 import { updateAuthorizedUserDataAction } from './login';
@@ -104,7 +103,7 @@ export const processUserModalFormAction = (
       : userModalPicture
   });
   dispatch(hideUserModalErrorAction());
-  if (!isEmptyObject(updatedData)) {
+  if (Object.keys(updatedData).length !== 0) {
     dispatch(showLoadingAction());
     updateUser(updatedData, userInfoId)
       .then((response) => {
