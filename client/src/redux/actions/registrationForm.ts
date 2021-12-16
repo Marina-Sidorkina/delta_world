@@ -57,6 +57,7 @@ export const hideLoadingAction = () => ({
 });
 
 export const registerUser = (data: any, history: any) => (dispatch: Dispatch) => {
+  dispatch(hideRegistrationErrorAction());
   dispatch(showLoadingAction());
   addAndShowNewUser(createNewUser(data))
     .then((response) => {
