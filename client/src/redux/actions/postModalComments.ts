@@ -45,6 +45,7 @@ export const updatePostModalCommentsTotalAction = (total: number) => ({
 export const getPostModalCommentsListAction = (page: number,
   limit: number,
   id: string) => (dispatch: Dispatch) => {
+  dispatch(hidePostModalCommentsErrorAction());
   dispatch(showPostModalCommentsLoadingAction());
   getCommentsList(page, limit, id)
     .then((response) => {
