@@ -26,7 +26,6 @@ const UserInfo = () => {
       ? value.ruDate
       : value.enDate
   );
-
   useEffect(() => {
     dispatch(loadUserInfo(params.id));
   }, [params.id]);
@@ -129,7 +128,7 @@ const UserInfo = () => {
       : styles.info}
     >
       { stateValues.userInfo.data.error ? (
-        <div>
+        <div className={styles.error}>
           { t('errorText', {}) }
         </div>
       ) : element }

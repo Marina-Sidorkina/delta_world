@@ -28,6 +28,7 @@ export const hideUserInfoErrorAction = () => ({
 });
 
 export const loadUserInfo = (paramsId: string) => (dispatch: Dispatch) => {
+  dispatch(hideUserInfoErrorAction());
   dispatch(showLoadingAction());
   getUserInfo(paramsId)
     .then((response) => {
