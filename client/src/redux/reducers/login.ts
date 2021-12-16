@@ -7,7 +7,7 @@ import {
   UPDATE_AUTHORIZATION_INPUT_VALUE, RESET_AUTHORIZED_USER,
   RESET_AUTHORIZATION_ERROR
 } from '../constants/login';
-import { getCookie } from '../../utils/redux';
+import { getCookie, resetCookie } from '../../utils/cookies';
 import { DEFAULT_IMAGE } from '../../constants/components';
 
 export const initialState = {
@@ -49,9 +49,7 @@ const setAuthorizedUserData = (draft: any, payload: IProxyUserFull) => {
 const resetUser = (draft: any) => {
   draft.data.authorizedUserData = {};
   draft.data.authorizedUserId = '';
-  document.cookie = 'id=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  document.cookie = 'picture=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  document.cookie = 'name=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  resetCookie();
   return draft;
 };
 

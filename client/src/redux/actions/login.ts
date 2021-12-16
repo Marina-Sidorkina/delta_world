@@ -9,8 +9,7 @@ import {
   RESET_AUTHORIZED_USER, RESET_AUTHORIZATION_ERROR
 } from '../constants/login';
 import { getUserInfo } from '../../api/proxy';
-import { getExpirationDate } from '../../utils/redux';
-import { DEFAULT_IMAGE } from '../../constants/components';
+import { setCookie } from '../../utils/cookies';
 import { IProxyUserFull } from '../../api/proxy/@types/proxy';
 
 export const updateAuthorizedUserDataAction = (response: AxiosResponse<any, any> | IProxyUserFull) => ({
@@ -49,10 +48,7 @@ export const authorizeUser = (id: string, history: any) => (dispatch: Dispatch) 
   getUserInfo(id)
     .then((response) => {
       dispatch(updateAuthorizedUserDataAction(response.data.data));
-      document.cookie = `id=${response.data.data.id}; path=/; expires=${getExpirationDate()}`;
-      document.cookie = `picture=${response.data.data.picture
-      || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
-      document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
+      setCookie(response);
       if (response.data.data.id) dispatch(history.push(`profile/${response.data.data.id}`));
       dispatch(hideLoadingAction());
     })

@@ -10,12 +10,12 @@ import { getImgLink } from '../../api/imgbbApi';
 import { IUserFormValues }
   from '../../components/modalComponents/userModalComponents/userModalForm/@types/userModalForm';
 import { createUpdatedUserData } from '../../utils/api';
-import { DEFAULT_IMAGE, IMAGE_CHANGE_CHECK_VALUE } from '../../constants/components';
+import { IMAGE_CHANGE_CHECK_VALUE } from '../../constants/components';
 import { isEmptyObject } from '../../utils/components';
 import { updateUser } from '../../api/proxy';
 import { updateUserCardAction } from './userInfo';
 import { updateAuthorizedUserDataAction } from './login';
-import { getExpirationDate } from '../../utils/redux';
+import { updateCookie } from '../../utils/cookies';
 
 export const showUserModalErrorAction = () => ({
   type: SHOW_USER_MODAL_ERROR
@@ -113,10 +113,8 @@ export const processUserModalFormAction = (
         dispatch(closeUserModalAction());
         dispatch(hideLoadingAction());
         dispatch(hideUserModalErrorAction());
-        document.cookie = `picture=${response.data.data.picture
-        || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
-        document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
-      })
+        updateCookie(response)
+        })
       .catch(() => {
         dispatch(hideLoadingAction());
         dispatch(showUserModalErrorAction());

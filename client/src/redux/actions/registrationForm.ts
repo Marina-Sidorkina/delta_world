@@ -8,8 +8,7 @@ import {
 import { addAndShowNewUser } from '../../api/proxy';
 import { createNewUser } from '../../utils/api';
 import { updateAuthorizedUserDataAction } from './login';
-import { getExpirationDate } from '../../utils/redux';
-import { DEFAULT_IMAGE } from '../../constants/components';
+import { setCookie } from '../../utils/cookies';
 
 export const showRegistrationErrorAction = () => ({
   type: SHOW_REGISTRATION_ERROR
@@ -66,10 +65,7 @@ export const registerUser = (data: any, history: any) => (dispatch: Dispatch) =>
         dispatch(hideRegistrationErrorAction());
         dispatch(hideLoadingAction());
         dispatch(updateAuthorizedUserDataAction(response.data.data));
-        document.cookie = `id=${response.data.data.id}; path=/; expires=${getExpirationDate()}`;
-        document.cookie = `picture=${response.data.data.picture
-        || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
-        document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
+        setCookie(response);
         if (response.data.data.id) dispatch(history.push(`profile/${response.data.data.id}`));
       } else {
         dispatch(showRegistrationErrorAction());
