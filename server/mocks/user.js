@@ -41,5 +41,9 @@ module.exports = {
       ruDateAndTime: '22 Июня 00:02'
     },
     picture: 'https://randomuser.me/api/portraits/med/men/83.jpg'
+  },
+  userPostsListMockData: {
+    data: [{id: '12345', image: 'image', owner: {}, text: 'text'}],
+    page: 0, limit: 1, total: 100
   }
 }

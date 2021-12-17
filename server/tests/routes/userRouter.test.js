@@ -28,8 +28,7 @@ describe('User Router', () => {
   it('getUserById should return user', async () => {
     mock
       .onGet(/\/user\/\w+/)
-      .replyOnce(constants.successStatus,
-        JSON.stringify(user.userMockData));
+      .replyOnce(constants.successStatus, JSON.stringify(user.userMockData));
 
     const result = await request(server).get('/proxy/user/12345').send();
 
@@ -41,6 +40,26 @@ describe('User Router', () => {
     mock.onGet(/\/user\/\w+/).replyOnce(constants.errorStatus);
 
     const result = await request(server).get('/proxy/user/12345').send();
+
+    expect(result.statusCode).toBe(constants.errorStatus);
+    expect(JSON.parse(result.text).message).toBe(constants.errorText);
+  });
+
+  it('getUserPostsList should return posts list', async() => {
+    mock
+      .onGet(/\/user\/\w+\/post/)
+      .replyOnce(constants.successStatus, JSON.stringify(user.userPostsListMockData));
+
+    const result = await request(server).get('/proxy/user/12345/post').send();
+
+    expect(result.statusCode).toBe(constants.successStatus);
+    expect(result.text).toEqual(JSON.stringify({ data: user.userPostsListMockData }));
+  });
+
+  it('getUserPostsList should return error', async() => {
+    mock.onGet(/\/user\/\w+\/post/).replyOnce(constants.errorStatus);
+
+    const result = await request(server).get('/proxy/user/12345/post').send();
 
     expect(result.statusCode).toBe(constants.errorStatus);
     expect(JSON.parse(result.text).message).toBe(constants.errorText);
