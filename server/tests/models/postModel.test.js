@@ -13,4 +13,4 @@ describe('Post Model', () => {
     expect(model.parseData({ data: [DATUM, DATUM], page: 0, limit: 5, total: 100 }))
       .toEqual({ data: [RESULT, RESULT], page: 0, limit: 5, total: 100 });
   })
-})
+});

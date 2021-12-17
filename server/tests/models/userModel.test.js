@@ -8,4 +8,4 @@ describe('User Model', () => {
   it('parseDatum should return only necessary processed fields', () => {
     expect(model.parseDatum(datum)).toEqual(result);
   })
-})
+});
