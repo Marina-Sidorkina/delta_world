@@ -17,7 +17,7 @@ describe('User Action', () => {
   });
 
   it('updateUserByIdMockSuccess should return reject with error', () => {
-    updateUserByIdMockSuccess();
+    updateUserByIdMockError();
 
     action.updateUserById('12345', { firstName: 'TEST10', lastname: 'TEST10' })
       .catch((error) => {
