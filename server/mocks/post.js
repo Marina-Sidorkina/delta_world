@@ -98,4 +98,4 @@ module.exports = {
     message: 'Beautiful pic',
     id: '60d2236f67d0d8992e6118d1'
   }
-}
+};

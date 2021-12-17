@@ -46,5 +46,8 @@ module.exports = {
     data: [{id: '12345', image: 'image', owner: {}, text: 'text'}],
     page: 0, limit: 1, total: 100
   },
-  userUpdatedMockData: { firstName: 'Rudi', lastname: 'Droste' }
-}
+  userUpdatedMockData: { firstName: 'Rudi', lastname: 'Droste', gender: 'male',
+    email: 'rudi.droste@example.com', dateOfBirth: '2021-06-21T21:02:08.029Z',
+    phone: '0421-7342787'
+  }
+};
