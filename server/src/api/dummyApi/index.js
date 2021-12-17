@@ -82,5 +82,6 @@ module.exports = {
   getUserById,
   getUserPostsList,
   updateUserById,
-  createUser
+  createUser,
+  dummyApi
 };
