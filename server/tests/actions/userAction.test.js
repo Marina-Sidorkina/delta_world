@@ -18,7 +18,6 @@ describe('User Action', () => {
     mock.onPut(/\/user\/\w+/, user.userUpdatedMockData)
       .replyOnce(constants.errorStatus);
 
-
       action.updateUserById('12345', user.userUpdatedMockData)
       .catch((error) => {
         expect(error.message).toBe(constants.errorText);
