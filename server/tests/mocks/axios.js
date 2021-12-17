@@ -27,4 +27,10 @@ module.exports =  {
   getPostCommentsListError: () => mock
     .onGet(/\/post\/\w+\/comment/, { params: { page: 0, limit: 1 } })
     .replyOnce(520),
+  getUsersListMockSuccess: () => mock
+    .onGet('/user', { params: { page: 0, limit: 5 } })
+    .replyOnce(200, { data: [], page: 0, limit: 5, total: 100 }),
+  getUsersListMockError: () => mock
+    .onGet('/user', { params: { page: 0, limit: 5 } })
+    .replyOnce(520),
 };

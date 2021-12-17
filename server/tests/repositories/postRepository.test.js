@@ -2,7 +2,7 @@ const {
   getPostsListMockSuccess, getPostsListMockError, getPostByIdSuccess,
   getPostByIdError, getPostCommentsListSuccess, getPostCommentsListError
 } = require('../mocks/axios');
-const repository = require('../../src/repositories/postRepository')
+const repository = require('../../src/repositories/postRepository');
 
 describe('Post Repository', () => {
   it('getPostsList should return resolve with data', () => {
