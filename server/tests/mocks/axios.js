@@ -33,4 +33,14 @@ module.exports =  {
   getUsersListMockError: () => mock
     .onGet('/user', { params: { page: 0, limit: 5 } })
     .replyOnce(520),
+  getUserByIdSuccess: () => mock
+    .onGet(/\/user\/\w+/)
+    .replyOnce(200,
+      { id: '12345', firstName: 'firstName', lastName: 'lastName', title: 'ms',
+      gender: 'female', email: 'test@test.com', dateOfBirth:'1972-08-07T22:16:47.420Z',
+      phone: '+77777777777', location: {}, registerDate: '2021-06-21T21:02:08.029Z',
+        updatedDate: '2021-06-21T21:02:08.029Z'}),
+  getUserByIdError: () => mock
+    .onGet(/\/user\/\w+/)
+    .replyOnce(520),
 };
