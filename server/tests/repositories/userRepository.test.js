@@ -2,7 +2,7 @@ const {
   getUsersListMockSuccess, getUsersListMockError,
   getUserByIdMockSuccess, getUserByIdMockError,
   getUserPostsListMockSuccess, getUserPostsListMockError,
-} = require('../mocks/axios');
+} = require('../../mocks/axios');
 const repository = require('../../src/repositories/userRepository');
 
 describe('User Repository', () => {

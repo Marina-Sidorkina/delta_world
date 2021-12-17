@@ -1,7 +1,7 @@
 const {
   getPostsListMockSuccess, getPostsListMockError, getPostByIdMockSuccess,
   getPostByIdMockError, getPostCommentsListMockSuccess, getPostCommentsListMockError
-} = require('../mocks/axios');
+} = require('../../mocks/axios');
 const repository = require('../../src/repositories/postRepository');
 
 describe('Post Repository', () => {
