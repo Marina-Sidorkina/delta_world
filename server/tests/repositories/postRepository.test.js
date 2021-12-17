@@ -1,6 +1,6 @@
 const {
-  getPostsListMockSuccess, getPostsListMockError, getPostByIdSuccess,
-  getPostByIdError, getPostCommentsListSuccess, getPostCommentsListError
+  getPostsListMockSuccess, getPostsListMockError, getPostByIdMockSuccess,
+  getPostByIdMockError, getPostCommentsListMockSuccess, getPostCommentsListMockError
 } = require('../mocks/axios');
 const repository = require('../../src/repositories/postRepository');
 
@@ -24,7 +24,7 @@ describe('Post Repository', () => {
   });
 
   it('getPostById should return resolve with data', () => {
-    getPostByIdSuccess();
+    getPostByIdMockSuccess();
 
     repository.getPostById('12345')
       .then((response) => {
@@ -33,7 +33,7 @@ describe('Post Repository', () => {
   });
 
   it('getPostById should return reject with error', () => {
-    getPostByIdError();
+    getPostByIdMockError();
 
     repository.getPostById('12345')
       .catch((error) => {
@@ -42,18 +42,19 @@ describe('Post Repository', () => {
   });
 
   it('getPostCommentsList should return resolve with data', () => {
-    getPostCommentsListSuccess();
+    getPostCommentsListMockSuccess();
 
     repository.getPostCommentsList('12345', 0, 1)
       .then((response) => {
-        expect(response.data).toStrictEqual(
-          [{ id: '12345', message: 'message', owner: {}, post: '12345', publishDate: '2020-03-06T23:00:40.972Z'}]
-        );
+        expect(response).toStrictEqual({
+          data: [{id: '12345', message: 'message', owner: {}, post: '12345', publishDate: '2020-03-06T23:00:40.972Z'}],
+          page: 0, limit: 1, total: 100
+        });
       });
   });
 
   it('getPostCommentsList should return reject with error', () => {
-    getPostCommentsListError();
+    getPostCommentsListMockError();
 
     repository.getPostCommentsList('12345', 0, 1)
       .catch((error) => {

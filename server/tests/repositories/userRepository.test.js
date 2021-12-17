@@ -1,6 +1,7 @@
 const {
   getUsersListMockSuccess, getUsersListMockError,
-  getUserByIdSuccess, getUserByIdError
+  getUserByIdMockSuccess, getUserByIdMockError,
+  getUserPostsListMockSuccess, getUserPostsListMockError,
 } = require('../mocks/axios');
 const repository = require('../../src/repositories/userRepository');
 
@@ -24,7 +25,7 @@ describe('User Repository', () => {
   });
 
   it('getUserById should return resolve with data', () => {
-    getUserByIdSuccess();
+    getUserByIdMockSuccess();
 
     repository.getUserById('12345')
       .then((response) => {
@@ -36,9 +37,30 @@ describe('User Repository', () => {
   });
 
   it('getUserById should return reject with error', () => {
-    getUserByIdError();
+    getUserByIdMockError();
 
     repository.getUserById('12345')
+      .catch((error) => {
+        expect(error.message).toBe('Request failed with status code 520');
+      });
+  });
+
+  it('getUserPostsList should return resolve with data', () => {
+    getUserPostsListMockSuccess();
+
+    repository.getUserPostsList('12345', 0, 1)
+      .then((response) => {
+        expect(response).toStrictEqual({ data: [
+            { id: '12345', image: 'image', owner: {}, text: 'text' }
+          ],
+          page: 0, limit: 1, total: 100 });
+      });
+  });
+
+  it('getUserPostsList should return reject with error', () => {
+    getUserPostsListMockError();
+
+    repository.getUserPostsList('12345', 0, 1)
       .catch((error) => {
         expect(error.message).toBe('Request failed with status code 520');
       });
