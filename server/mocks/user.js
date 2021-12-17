@@ -45,5 +45,6 @@ module.exports = {
   userPostsListMockData: {
     data: [{id: '12345', image: 'image', owner: {}, text: 'text'}],
     page: 0, limit: 1, total: 100
-  }
+  },
+  userUpdatedData: { firstName: 'Rudi', lastname: 'Droste' }
 }

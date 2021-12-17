@@ -63,5 +63,45 @@ describe('User Router', () => {
 
     expect(result.statusCode).toBe(constants.errorStatus);
     expect(JSON.parse(result.text).message).toBe(constants.errorText);
-  })
+  });
+
+  it('updateUserById should return updatedData', async() => {
+    mock
+      .onPut(/\/user\/\w+/)
+      .replyOnce(constants.successStatus, JSON.stringify(user.userMockData));
+
+    const result = await request(server).put('/proxy/user/12345').send();
+
+    expect(result.statusCode).toBe(constants.successStatus);
+    expect(result.text).toEqual(JSON.stringify({ data: user.userMockData }));
+  });
+
+  it('updateUserById should return error', async() => {
+    mock.onPut(/\/user\/\w+/).replyOnce(constants.errorStatus);
+
+    const result = await request(server).put('/proxy/user/12345').send();
+
+    expect(result.statusCode).toBe(constants.errorStatus);
+    expect(JSON.parse(result.text).message).toBe(constants.errorText);
+  });
+
+  it('createUser should return new user data', async() => {
+    mock
+      .onPost('/user/create')
+      .replyOnce(constants.successStatus, JSON.stringify(user.userMockData));
+
+    const result = await request(server).post('/proxy/user/create').send();
+
+    expect(result.statusCode).toBe(constants.successStatus);
+    expect(result.text).toEqual(JSON.stringify({ data: user.userMockData }));
+  });
+
+  it('createUser should return error', async() => {
+    mock.onPost('/user/create').replyOnce(constants.errorStatus);
+
+    const result = await request(server).post('/proxy/user/create').send();
+
+    expect(result.statusCode).toBe(constants.errorStatus);
+    expect(JSON.parse(result.text).message).toBe(constants.errorText);
+  });
 });
