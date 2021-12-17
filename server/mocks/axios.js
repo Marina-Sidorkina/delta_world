@@ -4,7 +4,6 @@ const { dummyApi } = require('../src/api/dummyApi');
 const mock = new MockAdapter(dummyApi);
 
 module.exports =  {
-  mock,
   getPostsListMockSuccess: () => mock
     .onGet('/post', { params: { page: 0, limit: 5 } })
     .replyOnce(200, { data: [], page: 0, limit: 5, total: 100 }),
