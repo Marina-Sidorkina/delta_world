@@ -5,7 +5,7 @@ describe('Post Repository', () => {
   it('getPostsList should return resolved', () => {
     getPostsListMockSuccess();
 
-    repository.getPostsList(0, 5)
+    repository.getPostsList()
       .then((response) => {
         expect(response.postsList).toEqual('Value');
       });
@@ -14,7 +14,7 @@ describe('Post Repository', () => {
   it('getPostsList should return rejected', () => {
     getPostsListMockError();
 
-    repository.getPostsList(0, 5)
+    repository.getPostsList()
       .catch((error) => {
         expect(error.message).toBe('Request failed with status code 520');
       });
