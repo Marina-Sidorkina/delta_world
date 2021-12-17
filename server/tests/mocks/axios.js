@@ -22,7 +22,8 @@ module.exports =  {
     .onGet(/\/post\/\w+\/comment/, { params: { page: 0, limit: 1 } })
     .replyOnce(200,
       { data: [
-        { id: '12345', message: 'message', owner: {}, post: '12345', publishDate: '2020-03-06T23:00:40.972Z'}
+        { id: '12345', message: 'message', owner: {},
+          post: '12345', publishDate: '2020-03-06T23:00:40.972Z'}
         ],
         page: 0, limit: 1, total: 100 }),
   getPostCommentsListMockError: () => mock
@@ -54,4 +55,13 @@ module.exports =  {
   getUserPostsListMockError: () => mock
     .onGet(/\/user\/\w+\/post/, { params: { page: 0, limit: 1 } })
     .replyOnce(520),
+  updateUserByIdMockSuccess: () => mock
+    .onPut(/\/user\/\w+/, { firstName: 'TEST10', lastname: 'TEST10' })
+    .replyOnce(200, { id: '12345', firstName: 'TEST10', lastName: 'TEST10', title: 'ms',
+      gender: 'female', email: 'test@test.com', dateOfBirth:'1972-08-07T22:16:47.420Z',
+      phone: '+77777777777', location: {}, registerDate: '2021-06-21T21:02:08.029Z',
+      updatedDate: '2021-06-21T21:02:08.029Z'}),
+  updateUserByIdMockError: () => mock
+    .onPut(/\/user\/\w+/, { firstName: 'TEST10', lastname: 'TEST10' })
+    .replyOnce(520)
 };
