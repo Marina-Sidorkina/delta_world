@@ -40,3 +40,5 @@ app.use((error, request, response, next) => {
 
 const server = app.listen(port, host, () => console.log('App started'));
 server.keepAliveTimeout = timeout;
+
+module.exports = server;
