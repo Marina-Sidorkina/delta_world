@@ -1,11 +1,11 @@
 const PostRepository = require('../repositories/postRepository');
-const DUMMY_API_SETTINGS = require("../../api/dummyApi/constants");
+const DUMMY_API_SETTINGS = require("../api/dummyApi/constants");
 const { statuses } = require('../../config/serverConfig');
-const PostModel = require('../../models/postModel');
-const CommentModel = require('../../models/commentModel');
+const PostModel = require('../models/postModel');
+const CommentModel = require('../models/commentModel');
 const logger = require('../logger');
 const format = require('string-format');
-const { postService: messages } = require('../../constants/loggerMessages');
+const { postService: messages } = require('../constants/loggerMessages');
 
 class PostService {
   getPostsList(req, res) {

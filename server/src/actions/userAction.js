@@ -1,7 +1,7 @@
-const { updateUserById, createUser } = require("../../api/dummyApi/index");
+const { updateUserById, createUser } = require("../api/dummyApi/index");
 const logger = require('../logger');
 const format = require('string-format');
-const { userAction: messages } = require('../../constants/loggerMessages');
+const { userAction: messages } = require('../constants/loggerMessages');
 
 class UserAction {
   updateUserById(id, data) {

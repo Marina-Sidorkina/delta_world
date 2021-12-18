@@ -1,11 +1,11 @@
 const UserRepository = require('../repositories/userRepository');
 const UserAction = require('../actions/userAction');
-const DUMMY_API_SETTINGS = require('../../api/dummyApi/constants');
+const DUMMY_API_SETTINGS = require('../api/dummyApi/constants');
 const { statuses } = require('../../config/serverConfig');
-const UserModel = require('../../models/userModel');
+const UserModel = require('../models/userModel');
 const logger = require('../logger');
 const format = require('string-format');
-const { userService: messages } = require('../../constants/loggerMessages');
+const { userService: messages } = require('../constants/loggerMessages');
 
 class UserService {
   getUsersList(req, res) {
