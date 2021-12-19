@@ -15,19 +15,3 @@ exports[`Main component test should render Main 1`] = `
   </div>
 </main>
 `;
-
-exports[`Main component test should render empty comment 1`] = `
-<main
-  className="main"
->
-  <div
-    className="container"
-  >
-    <div
-      className="children"
-    >
-      Children
-    </div>
-  </div>
-</main>
-`;

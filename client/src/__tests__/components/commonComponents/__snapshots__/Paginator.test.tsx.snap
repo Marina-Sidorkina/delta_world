@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main component test should render Main 1`] = `
-<Pagination
-  className="paginator
-        "
-  current={0}
-  onChange={[Function]}
-  pageSize={5}
-  showQuickJumper={true}
-  simple={true}
-  total={10}
-/>
-`;
-
 exports[`Paginator component test should render Paginator 1`] = `
 <Pagination
   className="paginator
