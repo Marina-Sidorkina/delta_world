@@ -5,8 +5,8 @@ import Paginator from '../../../components/commonComponents/paginator/Paginator'
 
 configure({adapter: new Adapter()});
 
-describe('Main component test', () => {
-  test('should render Main', () => {
+describe('Paginator component test', () => {
+  test('should render Paginator', () => {
     const wrapper = shallow(<Paginator
       perPage={5}
       onPageChange={()=> {}}
@@ -16,7 +16,7 @@ describe('Main component test', () => {
     expect(wrapper.length).toEqual(1)
   });
 
-  test('should render Main', () => {
+  test('should render Paginator', () => {
     const wrapper = shallow(<Paginator
       perPage={5}
       onPageChange={()=> {}}
