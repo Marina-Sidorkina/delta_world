@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 describe('Theme component test', () => {
   test('should render Theme', () => {
     const wrapper = shallow(<Theme />);
-    expect(wrapper.length).toEqual(1)
+    expect(wrapper.length).toEqual(1);
   });
 
   test('should render Theme', () => {

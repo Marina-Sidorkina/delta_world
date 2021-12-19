@@ -1,4 +1,4 @@
-import { createUpdatedUserData } from "../../utils/userData";
+import { createUpdatedUserData } from '../../utils/userData';
 
 describe('createUpdatedUserData', () => {
   test('should return new object with data', () => {
@@ -9,7 +9,7 @@ describe('createUpdatedUserData', () => {
       registrationDate: '11.11.1999',
       email: 'test',
       tel: '55555'
-      }))
+    }))
       .toEqual({
         firstName: 'John',
         lastName: 'Doe',
@@ -18,6 +18,6 @@ describe('createUpdatedUserData', () => {
         registerDate: '11.11.1999',
         email: 'test',
         phone: '55555'
-      })
+      });
   });
 });

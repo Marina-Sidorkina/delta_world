@@ -2,10 +2,10 @@ import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { configure, mount } from 'enzyme';
 import { Provider } from 'react-redux';
-import mockStore from "../../../../mocks/mockStore";
+import mockStore from '../../../../mocks/mockStore';
 import LanguageSelect from '../../../components/footerComponents/languageSelect/LanguageSelect';
 import * as actions from '../../../redux/actions/languageSelect';
-import initialStore from "../../../../mocks/initialStore";
+import initialStore from '../../../../mocks/initialStore';
 
 jest.mock('../../../redux/actions/languageSelect');
 configure({ adapter: new Adapter() });
@@ -18,7 +18,7 @@ describe('LanguageSelect component test', () => {
     store = mockStore(initialStore);
     store.dispatch = jest.fn();
     wrapper = mount(<Provider store={store}><LanguageSelect /></Provider>);
-  })
+  });
 
   test('should render LanguageSelect', () => {
     expect(wrapper.length).toEqual(1);

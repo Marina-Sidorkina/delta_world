@@ -1,8 +1,8 @@
 import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { configure, mount } from 'enzyme';
-import Navigation from "../../../components/headerComponents/navigation/Navigation";
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
+import Navigation from '../../../components/headerComponents/navigation/Navigation';
 
 configure({ adapter: new Adapter() });
 
@@ -11,10 +11,10 @@ describe('Navigation component test', () => {
 
   beforeEach(() => {
     wrapper = mount(<HashRouter><Navigation /></HashRouter>);
-  })
+  });
 
   test('should render Navigation', () => {
-    expect(wrapper.length).toEqual(1)
+    expect(wrapper.length).toEqual(1);
   });
 
   test('should render Navigation', () => {

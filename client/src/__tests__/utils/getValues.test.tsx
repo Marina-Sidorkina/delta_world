@@ -1,4 +1,4 @@
-import { getGenderFieldValue, getTitleValue } from "../../utils/getValues";
+import { getGenderFieldValue, getTitleValue } from '../../utils/getValues';
 
 describe('getGenderFieldValue', () => {
   test('should return Мужской', () => {
