@@ -15,4 +15,10 @@ describe('Main component test', () => {
     const wrapper = shallow(<Main>{<div className='children'>Children</div>}</Main>);
     expect(wrapper.find('div.children').text()).toBe('Children');
   });
+
+  test('should render Main', () => {
+    const wrapper = shallow(<Main>{<div className='children'>Children</div>}</Main>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
 });
