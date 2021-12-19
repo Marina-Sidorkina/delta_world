@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import LoginForm from "../../../components/formComponents/loginForm/LoginForm";
 import { HashRouter } from "react-router-dom";
+import initialStore from "../../../../mocks/initialStore";
 
 jest.mock('../../../redux/actions/login');
 configure({ adapter: new Adapter() });
@@ -15,18 +16,7 @@ describe('LoginForm component test', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    store = mockStore({
-      languageSelector: {
-        value: 'ru'
-      },
-      login: {
-        data: {
-          error: false,
-          isLoading: false,
-          inputValue: ''
-        }
-      }
-    });
+    store = mockStore(initialStore);
     store.dispatch = jest.fn();
     wrapper = mount(<Provider store={store}><HashRouter><LoginForm /></HashRouter></Provider>);
   })

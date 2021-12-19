@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import { HashRouter } from "react-router-dom";
 import RegistrationForm from "../../../components/formComponents/registrationForm/RegistrationForm";
+import initialStore from "../../../../mocks/initialStore";
 
 jest.mock('../../../redux/actions/registrationForm');
 configure({ adapter: new Adapter() });
@@ -15,22 +16,7 @@ describe('RegistrationForm component test', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    store = mockStore({
-      languageSelector: {
-        value: 'ru'
-      },
-      registration: {
-        values: {
-          name: '',
-          gender: '',
-          dateOfBirth: '',
-          email: '',
-          phone: '',
-        },
-        isLoading: false,
-        error: false
-      }
-    });
+    store = mockStore(initialStore);
     store.dispatch = jest.fn();
     wrapper = mount(
       <Provider store={store}>

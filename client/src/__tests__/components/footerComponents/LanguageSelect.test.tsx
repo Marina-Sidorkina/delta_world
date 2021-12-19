@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import LanguageSelect from '../../../components/footerComponents/languageSelect/LanguageSelect';
 import * as actions from '../../../redux/actions/languageSelect';
+import initialStore from "../../../../mocks/initialStore";
 
 jest.mock('../../../redux/actions/languageSelect');
 configure({ adapter: new Adapter() });
@@ -14,11 +15,7 @@ describe('LanguageSelect component test', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    store = mockStore({
-      languageSelector: {
-        value: 'ru'
-      }
-    });
+    store = mockStore(initialStore);
     store.dispatch = jest.fn();
     wrapper = mount(<Provider store={store}><LanguageSelect /></Provider>);
   })

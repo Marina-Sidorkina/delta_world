@@ -6,6 +6,7 @@ import Users from "../../pages/users/Users";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
+import initialStore from "../../../mocks/initialStore";
 
 configure({ adapter: new Adapter() });
 
@@ -14,24 +15,7 @@ describe('Users test', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    store = mockStore({
-      languageSelector: {
-        value: 'ru'
-      },
-      usersList: {
-        data: {
-          page: 0,
-          total: 100,
-          perPage: 6,
-          users: [{
-            firstName: 'John',
-            lastName: 'Doe',
-            title: 'mr',
-            id: '12345'
-          }]
-        }
-      }
-    });
+    store = mockStore(initialStore);
     wrapper = mount(
       <Provider store={ store } >
         <HashRouter>
