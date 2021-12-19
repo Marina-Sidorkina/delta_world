@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component test should render Header 1`] = `
-<header
-  className="header"
->
-  <div
-    className="container"
-  >
-    <Logo />
-    <Navigation />
-    <Authorization />
-  </div>
-</header>
-`;
-
 exports[`Logo component test should render Logo 1`] = `
 <div
   className="logo"
