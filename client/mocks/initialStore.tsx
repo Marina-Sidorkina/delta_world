@@ -39,7 +39,8 @@ const initialStore = {
     value: 'ru'
   },
   postModal: {
-    isOpened: false
+    isOpened: false,
+    currentPostId: '12345'
   },
   userPosts: {
     data: {
@@ -118,6 +119,46 @@ const initialStore = {
         phone: '55555'
       }
     }
+  },
+  postModalPost: {
+    isLoading: false,
+    error: false,
+    owner: {
+      firstName: 'John',
+      lastName: 'Doe',
+      picture: '',
+      title: 'mr',
+      id: '12345'
+    },
+    post: {
+      id: '12345',
+      image: '',
+      text: 'text',
+      publishDate: {
+        ruDateAndTime: '05 October 2011 14:48 UTC'
+      }
+    }
+  },
+  postModalComments: {
+    page: 1,
+    error: false,
+    isLoading: false,
+    comments: [{
+      id: '1234',
+      message: 'message',
+      publishDate: {
+        ruDateAndTime: '05 October 2011 14:48 UTC'
+      }
+    }],
+    owners: [{
+      firstName: 'John',
+      lastName: 'Doe',
+      picture: '',
+      title: 'mr',
+      id: '12345'
+    }],
+    limit: 6,
+    totalComments: 0
   }
 };
 
