@@ -5,7 +5,7 @@ import { configure, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import LoginForm from "../../../components/formComponents/loginForm/LoginForm";
-import {HashRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 jest.mock('../../../redux/actions/login');
 configure({ adapter: new Adapter() });

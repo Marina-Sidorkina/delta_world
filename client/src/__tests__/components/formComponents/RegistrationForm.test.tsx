@@ -4,7 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { configure, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
-import {HashRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import RegistrationForm from "../../../components/formComponents/registrationForm/RegistrationForm";
 
 jest.mock('../../../redux/actions/registrationForm');
