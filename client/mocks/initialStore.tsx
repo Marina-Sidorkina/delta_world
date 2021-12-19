@@ -18,10 +18,12 @@ const initialStore = {
   },
   login: {
     data: {
-      authorizedUserId: '12345',
       error: false,
       isLoading: false,
-      inputValue: ''
+      inputValue: '',
+      authorizedUserId: '123345',
+      authorizedUserName: 'Name',
+      authorizedUserPicture: ''
     }
   },
   registration: {

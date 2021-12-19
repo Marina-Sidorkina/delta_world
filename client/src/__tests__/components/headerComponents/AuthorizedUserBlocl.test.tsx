@@ -6,6 +6,7 @@ import mockStore from "../../../../mocks/mockStore";
 import AuthorizedUserBlock from "../../../components/headerComponents/authorizedUserBlock/AuthorizedUserBlock";
 import { HashRouter } from "react-router-dom";
 import * as actions from "../../../redux/actions/login";
+import initialStore from "../../../../mocks/initialStore";
 
 configure({ adapter: new Adapter() });
 jest.mock('../../../redux/actions/login');
@@ -15,17 +16,14 @@ describe('AuthorizedUserBlock component test', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    store = mockStore({
-      login: {
-        data: {
-          authorizedUserId: '123345',
-          authorizedUserName: 'Name',
-          authorizedUserPicture: ''
-        }
-      }
-    });
+    store = mockStore(initialStore);
     store.dispatch = jest.fn();
-    wrapper = mount(<Provider store={store}><HashRouter><AuthorizedUserBlock /></HashRouter></Provider>);
+    wrapper = mount(
+      <Provider store={store}>
+        <HashRouter>
+          <AuthorizedUserBlock />
+        </HashRouter>
+      </Provider>);
   })
 
   test('should render AuthorizedUserBlock', () => {
