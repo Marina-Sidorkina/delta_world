@@ -24,7 +24,7 @@ describe('LanguageSelect component test', () => {
   })
 
   test('should render LanguageSelect', () => {
-    expect(wrapper.length).toEqual(1)
+    expect(wrapper.length).toEqual(1);
   });
 
   test('prop should match with store', () => {
