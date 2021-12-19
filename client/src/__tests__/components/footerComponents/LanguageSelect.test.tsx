@@ -4,7 +4,9 @@ import { configure, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import LanguageSelect from '../../../components/footerComponents/languageSelect/LanguageSelect';
+import * as actions from '../../../redux/actions/languageSelect';
 
+jest.mock('../../../redux/actions/languageSelect');
 configure({ adapter: new Adapter() });
 
 describe('LanguageSelect component test', () => {
@@ -17,7 +19,7 @@ describe('LanguageSelect component test', () => {
         value: 'ru'
       }
     });
-
+    store.dispatch = jest.fn();
     wrapper = mount(<Provider store={store}><LanguageSelect /></Provider>);
   })
 
@@ -31,5 +33,10 @@ describe('LanguageSelect component test', () => {
 
   test('should render LanguageSelect', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  test('should change value', () => {
+    wrapper.childAt(0).simulate('change', { target: { value: 'en' } });
+    expect(actions.changeLanguageAction).toBeCalledWith('en');
   });
 });
