@@ -4,7 +4,7 @@ import { configure, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import mockStore from "../../../../mocks/mockStore";
 import Authorization from "../../../components/headerComponents/authorization/Authorization";
-import {HashRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 configure({ adapter: new Adapter() });
 
