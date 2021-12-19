@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component test should render Footer 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container"
+  >
+    <Logo />
+    <Navigation />
+    <Authorization />
+  </div>
+</header>
+`;
+
+exports[`Header component test should render Header 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container"
+  >
+    <Logo />
+    <Navigation />
+    <Authorization />
+  </div>
+</header>
+`;
