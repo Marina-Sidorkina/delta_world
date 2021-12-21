@@ -85,7 +85,7 @@ describe('login actions', () => {
   test('authorizeUser should call resetAuthorizationErrorAction', () => {
     // @ts-ignore
     proxy.getUserInfo.mockResolvedValue(userFullInfo);
-    const authorizeUserAction = actions.authorizeUser('12345', 'history');
+    const authorizeUserAction = actions.authorizeUser(testValue, testValue);
     const dispatch = jest.fn();
 
     authorizeUserAction(dispatch);
@@ -102,7 +102,7 @@ describe('login actions', () => {
   test('authorizeUser should call updateAuthorizedUserDataAction', (done) => {
     // @ts-ignore
     proxy.getUserInfo.mockResolvedValue(userFullInfo);
-    const authorizeUserAction = actions.authorizeUser('12345', 'history');
+    const authorizeUserAction = actions.authorizeUser(testValue, testValue);
 
     const dispatch = jest
       .fn()
@@ -122,7 +122,7 @@ describe('login actions', () => {
   test('authorizeUser should call updateAuthorizedUserDataAction', (done) => {
     // @ts-ignore
     proxy.getUserInfo.mockRejectedValue(testValue);
-    const authorizeUserAction = actions.authorizeUser('12345', 'history');
+    const authorizeUserAction = actions.authorizeUser(testValue, testValue);
 
     const dispatch = jest
       .fn()
@@ -132,7 +132,7 @@ describe('login actions', () => {
         expect(action).toEqual({
           type: LOAD_AUTHORIZATION_ERROR
         });
-        done()
+        done();
       });
 
     authorizeUserAction(dispatch);
