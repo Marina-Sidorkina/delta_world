@@ -15,5 +15,4 @@ i18n
     resources: { en: { translationsNS: {} } },
   });
 
-
 export default i18n;
