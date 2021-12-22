@@ -32,7 +32,7 @@ const comment = {
     enDateAndTime: testValue,
     ruDateAndTime: testValue,
   }
-}
+};
 
 describe('postModalComments actions', () => {
   test('showPostModalCommentsLoadingAction should return action object', () => {

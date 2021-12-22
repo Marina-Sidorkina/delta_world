@@ -1,10 +1,10 @@
 import '../../../../../mocks/matchMediaMock';
-import React from "react";
+import React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import UserModal from "../../../../components/modalComponents/userModalComponents/userModal/UserModal";
+import UserModal from '../../../../components/modalComponents/userModalComponents/userModal/UserModal';
 import mockStore from '../../../../../mocks/mockStore';
 import initialStore from '../../../../../mocks/initialStore';
 

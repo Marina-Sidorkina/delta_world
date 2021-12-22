@@ -6,6 +6,6 @@ describe('LanguageSelect actions', () => {
     expect(changeLanguageAction('en')).toEqual({
       type: CHANGE_LANGUAGE,
       payload: 'en'
-    })
-  })
+    });
+  });
 });

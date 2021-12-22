@@ -1,4 +1,4 @@
-import * as actions from '../../../../src/redux/actions/login';
+import * as actions from '../../../redux/actions/login';
 import {
   HIDE_AUTHORIZATION_LOADING,
   LOAD_AUTHORIZATION_ERROR,
@@ -44,7 +44,7 @@ const userFullInfo = {
       }
     }
   }
-}
+};
 
 const testValue = 'value';
 const emptyFunction = () => {};
@@ -114,7 +114,7 @@ describe('login actions', () => {
           type: UPDATE_AUTHORIZED_USER_DATA,
           payload: userFullInfo.data.data
         });
-        done()
+        done();
       });
 
     authorizeUserAction(dispatch);
