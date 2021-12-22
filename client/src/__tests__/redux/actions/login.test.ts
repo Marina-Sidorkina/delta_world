@@ -8,9 +8,9 @@ import {
   UPDATE_AUTHORIZATION_INPUT_VALUE,
   UPDATE_AUTHORIZED_USER_DATA
 } from '../../../redux/constants/login';
-import * as proxy from '../../../../src/api/proxy/index';
+import * as proxy from '../../../api/proxy/index';
 
-jest.mock('../../../../src/api/proxy/index');
+jest.mock('../../../api/proxy/index');
 
 const userFullInfo = {
   data: {
@@ -119,7 +119,7 @@ describe('login actions', () => {
     authorizeUserAction(dispatch);
   });
 
-  test('authorizeUser should call updateAuthorizedUserDataAction', (done) => {
+  test('authorizeUser should call loadErrorAction', (done) => {
     // @ts-ignore
     proxy.getUserInfo.mockRejectedValue(testValue);
     const authorizeUserAction = actions.authorizeUser(testValue, testValue);
