@@ -6,7 +6,7 @@ import {
   UPDATE_REGISTRATION_EMAIL,
   UPDATE_REGISTRATION_GENDER,
   UPDATE_REGISTRATION_NAME, UPDATE_REGISTRATION_PHONE
-} from "../../../redux/constants/registrationForm";
+} from '../../../redux/constants/registrationForm';
 
 const initialState = {
   values: {
@@ -57,7 +57,7 @@ describe('registrationFormReducer test', () => {
   });
 
   test('RESET_REGISTRATION_VALUES', () => {
-    expect(registrationFormReducer(initialState, { type:RESET_REGISTRATION_VALUES, payload: testValue }))
+    expect(registrationFormReducer(initialState, { type: RESET_REGISTRATION_VALUES, payload: testValue }))
       .toEqual(initialState);
   });
 

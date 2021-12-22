@@ -57,7 +57,7 @@ describe('postModalCommentsReducer test', () => {
       .toEqual({
         ...initialState,
         comments: [comment],
-        owners: [comment].map((comment) => comment.owner)
+        owners: [comment].map((item) => item.owner)
       });
   });
 
