@@ -1,10 +1,10 @@
-import postModalCommentsReducer from "../../../redux/reducers/postModalComments";
+import postModalCommentsReducer from '../../../redux/reducers/postModalComments';
 import {
   HIDE_POST_MODAL_COMMENTS_ERROR,
   HIDE_POST_MODAL_COMMENTS_LOADING, SHOW_POST_MODAL_COMMENTS_ERROR,
   SHOW_POST_MODAL_COMMENTS_LOADING,
   UPDATE_POST_MODAL_COMMENTS, UPDATE_POST_MODAL_COMMENTS_PAGE, UPDATE_POST_MODAL_TOTAL_COMMENTS
-} from "../../../redux/constants/postModalComments";
+} from '../../../redux/constants/postModalComments';
 
 const initialState = {
   error: false,
@@ -112,6 +112,6 @@ describe('postModalCommentsReducer test', () => {
       payload: [],
       page: testNumberValue,
       total: testNumberValue
-    })).toEqual(initialState)
-  })
+    })).toEqual(initialState);
+  });
 });

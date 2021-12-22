@@ -1,10 +1,10 @@
-import loginReducer from "../../../redux/reducers/login";
+import loginReducer from '../../../redux/reducers/login';
 import {
   HIDE_AUTHORIZATION_LOADING, LOAD_AUTHORIZATION_ERROR, RESET_AUTHORIZATION_ERROR, RESET_AUTHORIZED_USER,
   SHOW_AUTHORIZATION_LOADING,
   UPDATE_AUTHORIZATION_INPUT_VALUE,
   UPDATE_AUTHORIZED_USER_DATA
-} from "../../../redux/constants/login";
+} from '../../../redux/constants/login';
 
 const initialState = {
   data: {
@@ -22,13 +22,13 @@ const updatedData = {
   id: '12345',
   firstName: 'Name',
   picture: 'picture'
-}
+};
 
 const testValue = 'value';
 
 describe('loginReducer test', () => {
   test('UPDATE_AUTHORIZED_USER_DATA', () => {
-    expect(loginReducer(initialState, { type: UPDATE_AUTHORIZED_USER_DATA, payload: updatedData}))
+    expect(loginReducer(initialState, { type: UPDATE_AUTHORIZED_USER_DATA, payload: updatedData }))
       .toEqual({
         data: {
           ...initialState.data,
@@ -40,7 +40,7 @@ describe('loginReducer test', () => {
   });
 
   test('UPDATE_AUTHORIZATION_INPUT_VALUE', () => {
-    expect(loginReducer(initialState, { type: UPDATE_AUTHORIZATION_INPUT_VALUE, payload: testValue}))
+    expect(loginReducer(initialState, { type: UPDATE_AUTHORIZATION_INPUT_VALUE, payload: testValue }))
       .toEqual({
         data: {
           ...initialState.data,
@@ -104,6 +104,6 @@ describe('loginReducer test', () => {
   });
 
   test('UNKNOWN ACTION', () => {
-    expect(loginReducer(initialState, { type: 'UNKNOWN' })).toEqual(initialState)
-  })
+    expect(loginReducer(initialState, { type: 'UNKNOWN' })).toEqual(initialState);
+  });
 });

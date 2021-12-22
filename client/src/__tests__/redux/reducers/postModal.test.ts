@@ -1,5 +1,5 @@
-import postModalReducer from "../../../redux/reducers/postModal";
-import { CLOSE_POST_MODAL, OPEN_POST_MODAL, SET_POST_MODAL_CURRENT_ID } from "../../../redux/constants/postModal";
+import postModalReducer from '../../../redux/reducers/postModal';
+import { CLOSE_POST_MODAL, OPEN_POST_MODAL, SET_POST_MODAL_CURRENT_ID } from '../../../redux/constants/postModal';
 
 const initialState = {
   isOpened: false,
@@ -34,6 +34,6 @@ describe('postModalReducer test', () => {
   });
 
   test('UNKNOWN ACTION', () => {
-    expect(postModalReducer(initialState, { type: 'UNKNOWN' })).toEqual(initialState)
-  })
+    expect(postModalReducer(initialState, { type: 'UNKNOWN' })).toEqual(initialState);
+  });
 });
