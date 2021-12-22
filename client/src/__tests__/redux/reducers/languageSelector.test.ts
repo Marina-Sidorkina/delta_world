@@ -7,11 +7,15 @@ const initialState = {
 }
 
 describe('languageSelectorReducer test', () => {
-  test('SHOW_LOADING', () => {
+  test('CHANGE_LANGUAGE', () => {
     expect(languageSelectorReducer(initialState, { type: CHANGE_LANGUAGE, payload: 'en'}))
       .toEqual({
       ...initialState,
       value: 'en'
-    })
+    });
+  });
+
+  test('UNKNOWN ACTION', () => {
+    expect(languageSelectorReducer(initialState, { type: 'UNKNOWN', payload: 'en' })).toEqual(initialState)
   })
 });
