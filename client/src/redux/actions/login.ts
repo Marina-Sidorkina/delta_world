@@ -48,9 +48,11 @@ export const authorizeUser = (id: string, history: any) => (dispatch: Dispatch) 
   getUserInfo(id)
     .then((response) => {
       dispatch(updateAuthorizedUserDataAction(response.data.data));
-      setCookie(response);
-      if (response.data.data.id) dispatch(history.push(`profile/${response.data.data.id}`));
       dispatch(hideLoadingAction());
+      if (response.data.data.id) {
+        setCookie(response);
+        history.push(`profile/${response.data.data.id}`);
+      }
     })
     .catch(() => {
       dispatch(loadErrorAction());

@@ -102,7 +102,8 @@ describe('login actions', () => {
   test('authorizeUser should call updateAuthorizedUserDataAction', (done) => {
     // @ts-ignore
     proxy.getUserInfo.mockResolvedValue(userFullInfo);
-    const authorizeUserAction = actions.authorizeUser(testValue, testValue);
+    const historyMock = { push: jest.fn(), location: {}, listen: jest.fn() };
+    const authorizeUserAction = actions.authorizeUser(testValue, historyMock);
 
     const dispatch = jest
       .fn()
