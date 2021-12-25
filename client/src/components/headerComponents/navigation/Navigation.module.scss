@@ -62,5 +62,10 @@
   .link {
     display: flex;
     align-items: center;
+    color: #000000;
+
+    &:hover {
+      color: #000000;
+    }
   }
 }
