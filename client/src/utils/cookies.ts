@@ -15,10 +15,10 @@ export const getCookie = (name: string) => {
 };
 
 export const setCookie = (response: AxiosResponse <any, any>) => {
-  document.cookie = `id=${response.data.data.id}; path=/; expires=${getExpirationDate()}`;
+  document.cookie = `id=${response.data.data.id}; path=/; expires=${getExpirationDate()}; samesite=strict`;
   document.cookie = `picture=${response.data.data.picture
-  || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
-  document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
+  || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}; samesite=strict`;
+  document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}; samesite=strict`;
 };
 
 export const resetCookie = () => {
@@ -29,6 +29,6 @@ export const resetCookie = () => {
 
 export const updateCookie = (response: AxiosResponse <any, any>) => {
   document.cookie = `picture=${response.data.data.picture
-  || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}`;
-  document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}`;
+  || DEFAULT_IMAGE}; path=/; expires=${getExpirationDate()}; samesite=strict`;
+  document.cookie = `name=${response.data.data.firstName}; path=/; expires=${getExpirationDate()}; samesite=strict`;
 };
