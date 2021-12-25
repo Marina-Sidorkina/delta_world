@@ -6,7 +6,7 @@ import UsersList from '../../components/usersListComponents/usersList/UsersList'
 import Paginator from '../../components/commonComponents/paginator/Paginator';
 import { updateUsersListPageAction } from '../../redux/actions/usersList';
 import { IUsersProps } from './@types/users';
-import { DEFAULT_PAGE } from '../../constants/components';
+import { DEFAULT_PAGE, DEFAULT_PAGES_AMOUNT } from '../../constants/components';
 
 const Users = (props: IUsersProps) => {
   const {
@@ -20,7 +20,7 @@ const Users = (props: IUsersProps) => {
       <UsersList />
       <Paginator
         current={page}
-        total={total}
+        total={total || DEFAULT_PAGES_AMOUNT}
         perPage={perPage}
         onPageChange={(value: number) => {
           updatePage(value);

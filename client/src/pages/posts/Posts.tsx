@@ -7,7 +7,7 @@ import Paginator from '../../components/commonComponents/paginator/Paginator';
 import { updatePostsListPageAction } from '../../redux/actions/postsList';
 import PostModal from '../../components/modalComponents/postModalComponents/postModal/PostModal';
 import { IPostsProps } from './@types/posts';
-import { DEFAULT_PAGE } from '../../constants/components';
+import { DEFAULT_PAGE, DEFAULT_PAGES_AMOUNT } from '../../constants/components';
 
 const Posts = (props: IPostsProps) => {
   const {
@@ -21,7 +21,7 @@ const Posts = (props: IPostsProps) => {
       <PostsList />
       <Paginator
         current={page}
-        total={total}
+        total={total || DEFAULT_PAGES_AMOUNT}
         perPage={perPage}
         onPageChange={(value: number) => {
           updatePage(value);
